@@ -113,12 +113,8 @@ nav ul li + li + li {
 
 .content img {
     max-width: 100%;
-    opacity: 0%;
 }
 
-.content img:hover {
-    opacity: 100%;
-}
 
 .content {
     max-width: 1000px;
