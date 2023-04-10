@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(34, 34, 48);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    margin: 0;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    color: white;
+    position: absolute;
+    top: 15%;
+}
+
+.btn {
+    background-color: rgb(56, 173, 134);
+    border-radius: 5px;
+    border: 0;
+    color: black;
+    margin: 1rem;
+    padding: 1.5rem 3rem;
+    font-size: 1.2rem;
+    font-family: inherit;
+    user-select: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn.ativasom {
+    background: url(https://thumbs.gfycat.com/AcclaimedHeartfeltGoat-size_restricted.gif);
+    background-size: cover;
+}
+
