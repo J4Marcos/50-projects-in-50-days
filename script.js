@@ -1,29 +1,46 @@
-// const fs = require('fs/promises')
-// const path = require('path')
-
-// var NDeProjects = 0
-
-// fs.readdir(path.join('/', 'Users', 'cicer', 'OneDrive', 'Documentos', 'vs code', 'curso 50 projetos', '50-projects-in-50-days')).then(files => {
-//     const projects = files.filter(file => file.includes('project') && file.length == 9)
-//     console.log(projects)
-//     NDeProjects = projects.length
-// })
 
 
 
-for (var c = 1; c <= 23; c++) {
 
-    const div = document.getElementsByClassName('projectslink')[0]
+
+var fechou = false
+
+for (var c = 1; c <= 50 && fechou == false; c++) {
+
+    const div = document.querySelector('.projectslink')
     const pLink = document.createElement('p')
     let num = ""
     if (c < 10) {
         num = `0${c}`
     } else { num = c }
 
-    pLink.innerHTML = `<h3><a href="project${num}/index.html" target="_blank" rel="next">project${num}</a></h3>+++`
+    // p chat gpt me mostrou como usar o fetch para acesar o um html externo!
+    fetch(`https://j4marcos.github.io/50-projects-in-50-days/project${num}/index.html`)
+        .then(response => response.text())
+        .then(data => {
+            var parser = new DOMParser();
+            var doc = parser.parseFromString(data, 'text/html');
 
-    div.appendChild(pLink)
+            var pageTitle = doc.title
 
+            // inserir no html 
+           
+            if (pageTitle === "Page not found · GitHub Pages"){
+
+               
+
+                const avisofinal = document.querySelector('#faltaProjetos')
+                avisofinal.innerHTML = `ainda restam projetos serem concluidos`
+
+               
+
+            } else {
+                pLink.innerHTML = `<h3><a href="project${num}/index.html" target="_blank" rel="next">project${num}</a></h3>${pageTitle}`
+
+                div.appendChild(pLink)
+            }
+        })
+
+        .catch(error => console.error(error))
 }
 
-console.log() 
