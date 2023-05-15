@@ -63,7 +63,7 @@ const quizData = [{
     correct: "c",
     },
     {
-    question: "Qual é a diferença entre uma variável global e uma variável local em programação?",
+    question: "Qual é a diferença entre uma variável global e uma variável local?",
     a: "Uma variável global é declarada dentro de uma função, enquanto uma variável local é declarada fora de uma função",
     b: "Uma variável global pode ser acessada de qualquer lugar no código, enquanto uma variável local só pode ser acessada dentro de uma função",
     c: "Não há diferença, as duas palavras se referem à mesma coisa",
