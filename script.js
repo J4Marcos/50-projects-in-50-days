@@ -34,15 +34,18 @@ for (var c = 1; c <= 50; c++) {
         .catch(error => console.error(error))
 }
 
-
+setTimeout( () => {
 
 const projects = document.querySelectorAll('.card');
 
 for (let i = 0; i < projects.length; i++) {
-    const expectedOrder = Number(i.toString().padStart(2, '0'))
+    const expectedOrder = Number((i + 1).toString().padStart(2, '0'))
   const projectName = projects[i].querySelector('a').getAttribute('href');
-  if (projectName.includes(expectedOrder)) {
+  console.log(projectName,' ', expectedOrder)
+  if (!projectName.includes(expectedOrder)) {
     location.reload(); // recarrega a página se as divs não estiverem na ordem esperada
     break;
   }
 }
+
+}, 1500)
