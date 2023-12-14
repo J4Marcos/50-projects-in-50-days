@@ -6,14 +6,14 @@
     projectslinks.push(`https://j4marcos.github.io/50-projects-in-50-days/project${String(num).padStart(2,'0')}/index.html`)
  }
 
-const pegarSite = new Promise()
-
-projectslinks.forEach((link, num) => { 
-    pegarSite((sucesso, falha) => {
+const pegarSite = new Promise((sucesso, falha) => {
     const site = require(link)  
     sucesso(site)
     falha(site)
 })
+
+projectslinks.forEach((link, num) => { 
+    pegarSite
 .then(site => site.text())
 .then(data => {
     var parser = new DOMParser();
