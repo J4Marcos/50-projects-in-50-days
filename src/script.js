@@ -1,4 +1,3 @@
-
  const divLinkCards = document.querySelector('.projectslink')
  const projectslinks = []
  
@@ -25,8 +24,6 @@ projectslinks.forEach((link, num) => {
 .catch(error => console.error(error))
 
 })
-
-
 
 
 function inserirCard(num, link, title) {
