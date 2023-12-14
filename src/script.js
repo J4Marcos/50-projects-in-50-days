@@ -2,7 +2,7 @@
  const divLinkCards = document.querySelector('.projectslink')
  const projectslinks = []
  
- for (let num = 1 of 50) {
+ for (let num = 1 ; num <= 50 ; num ++) {
     projectslinks.push(`https://j4marcos.github.io/50-projects-in-50-days/project${num.padStart(2,'0')}/index.html`)
  }
 
