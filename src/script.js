@@ -29,10 +29,10 @@ projectslinks.forEach((link, num) => {
 
 
 
-function inserirCard(num, title, pLink) {
+function inserirCard(num, link, title) {
     const card = document.createElement("div.card")
     const pLink = document.createElement('h3')
-    pLink.innerHTML = `<a href="project${num.padStart(2,"0")}/index.html" target="_blank" rel="next">${numpadStart(2,"0")} : ${title}</a>`
+    pLink.innerHTML = `<a href="${link}" target="_blank" rel="next">${numpadStart(2,"0")} : ${title}</a>`
     pLink.appendChild(card)
     card.appendChild(divLinkCards)
 }
