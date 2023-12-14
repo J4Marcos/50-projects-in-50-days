@@ -3,7 +3,7 @@
  const projectslinks = []
  
  for (let num = 1 ; num < 50 || num == 50 ; num ++) {
-    projectslinks.push(`https://j4marcos.github.io/50-projects-in-50-days/project${num.padStart(2,'0')}/index.html`)
+    projectslinks.push(`https://j4marcos.github.io/50-projects-in-50-days/project${String(num).padStart(2,'0')}/index.html`)
  }
 
 const pegarSite = new Promise()
@@ -20,7 +20,7 @@ projectslinks.forEach((link, num) => {
     var doc = parser.parseFromString(data, 'text/html');
 
     var pageTitle = doc.title
-    inserirCard(num, link, pageTitle)
+    inserirCard(String(num), link, pageTitle)
 })
 .catch(error => console.error(error))
 

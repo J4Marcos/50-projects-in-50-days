@@ -1,10 +1,10 @@
 body {
-    background-color: rgb(40, 35, 61);
-    color: white;
+    background-color:#183152;
+    color: #E1E6FA;
 }
 
 a {
-    color: yellow
+    color: #183152
 }
 
 .projectslink {
@@ -21,7 +21,7 @@ h1 {
 }
 
 div.card {
-    background-color: rgb(38, 38, 82);
+    background-color: #C4D7ED;
     font-family: Arial, Helvetica, sans-serif;
     width: 150px;
     height: 150px;
@@ -33,13 +33,13 @@ div.card {
 }
 
 div.finalMsg {
-    background-color: rgb(40, 19, 59);
+    background-color: #ABC8E2;
     width: auto;
     padding: 10px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.226);
     margin-top: 0;
     margin: 50px;
-    color: yellow;
+    color: #C4D7ED;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
 }
