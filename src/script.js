@@ -1,7 +1,7 @@
 const divLinkCards = document.querySelector('.projectslink')
 const projectslinks = []
 const lista = new Map
-let ordem = 0
+let ordem = 1
 
 for (let num = 1; num < 50 || num == 50; num++) {
     projectslinks.push(`https://j4marcos.github.io/50ProjectsIn50Days/project${String(num).padStart(2, '0')}/index.html`)
@@ -26,12 +26,15 @@ const pegarSite = new Promise((sucesso, falha) => {
 
 
 
-function fila(ordem, func) {
-lista.set(ordem,func)
+
+function fila(n, func) {
 if (lista.has(ordem)){
     lista.get(ordem)
     ordem++
     lista.delete(ordem)
+    fila()
+}
+if (n && func) lista.set(n,func)
 }
 
 
