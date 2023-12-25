@@ -20,7 +20,7 @@ const pegarSite = new Promise((sucesso, falha) => {
             var pageTitle = doc.title
             fila(num, inserirCard(String(num + 1), link, pageTitle))
         })
-        .catch(error => console.error(error))
+        .catch(error => console.log(error))
 
 })
 
@@ -29,7 +29,7 @@ const pegarSite = new Promise((sucesso, falha) => {
 function fila(ordem, func) {
 lista.set(ordem,func)
 if (lista.has(ordem)){
-    lista.get(ordem)()
+    lista.get(ordem)
     ordem++
     lista.delete(ordem)
 }
@@ -45,6 +45,5 @@ function inserirCard(num, link, title) {
     pLink.innerHTML = `<a href="${link}" target="_blank" rel="next">${num.padStart(2,"0")} : ${title}</a>`
     divLinkCards.appendChild(card)
     card.appendChild(pLink)
-    console.log(card)
 
 }
