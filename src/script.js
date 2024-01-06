@@ -1,31 +1,36 @@
 const divLinkCards = document.querySelector('.projectslink')
 
-function inserirCard(num, html) {
-    const card = document.createElement("div")
-    card.classList.add("card")
-    const pLink = document.createElement('h3')
-    const numeral = String(num).padStart(2, "0")
-    pLink.innerHTML = `<a href="project${numeral}" target="_blank" rel="next">${numeral} : ${html.title}</a>`
-    divLinkCards.appendChild(card)
-    card.appendChild(pLink)
+function inserirCards(pages = []) {
+    // console.log(pages);
+    pages.forEach((page, index) => {
+        const card = document.createElement("div")
+        card.classList.add("card")
+        const pLink = document.createElement('h3')
+        const numeral = String(index + 1).padStart(2, "0")
+        pLink.innerHTML = `<a href="project${numeral}" target="_blank" rel="next">${numeral} : ${page.title}</a>`
+        divLinkCards.appendChild(card)
+        card.appendChild(pLink)
+    });
 
 }
 
 async function getCards() {
-    for (let n = 1; n <= 50; n++) {
-        const getSiteData = await fetch(`project${String(n).padStart(2, '0')}`)
-        .then((data) => data.text())
-        .then((data) => {
-            var parser = new DOMParser()
-            var html = parser.parseFromString(data, 'text/html')
-            inserirCard(n,html)
+    const linksList = []
+    let n
+    for (n = 1; n <= 50; n++) linksList.push(`project${String(n).padStart(2, '0')}`)
+    const requests = linksList.map((link) => fetch(link).then(res => res.text()))
+    Promise.all(requests)
+        .then((html) => {
+            const parser = new DOMParser()
+            const pages = html.map(text => parser.parseFromString(text, 'text/html'))
+            inserirCards(pages)
         })
-    }
+
 }
 
 getCards()
-    
-    
+
+
 
 
 
